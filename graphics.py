@@ -52,14 +52,14 @@ def draw_minutes():
     # every minute move 6 degrees right
     x = 300 * (4 / 5) * math.cos(math.radians(90 - minute * 6)) + 300
     y = 300 * (4 / 5) * math.sin(-math.radians(90 - minute * 6)) + 300
-    pg.draw.line(screen, (0, 0, 0), (300, 300), (x, y), 10)
+    pg.draw.line(screen, (0, 0, 0), (300, 300), (x, y), 5)
 
 
 def draw_hours():
     # every hour move 30 degrees right
     x = 300 * (3 / 5) * math.cos(math.radians(90 - hour * 30)) + 300
     y = 300 * (3 / 5) * math.sin(-math.radians(90 - hour * 30)) + 300
-    pg.draw.line(screen, (0, 0, 0), (300, 300), (x, y), 5)
+    pg.draw.line(screen, (0, 0, 0), (300, 300), (x, y), 10)
 
 
 def draw_time():
