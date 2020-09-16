@@ -41,6 +41,28 @@ def get_time_digital():
 
 def draw_seconds():
     # every second move 6 degrees right
-    x = math.cos(6)
-    y = math.sin(6)
-    pg.draw.line(screen, (255, 0, 0), (300, 300), (x, y), 1)
+    # 4/5 shortens arm length
+    # 300 is the radius. no clue what the other 300 does but it doesn't work without it
+    x = 300 * (4 / 5) * math.cos(math.radians(90 - second * 6)) + 300
+    y = 300 * (4 / 5) * math.sin(-math.radians(90 - second * 6)) + 300
+    pg.draw.line(screen, (255, 0, 0), (300, 300), (x, y), 2)
+
+
+def draw_minutes():
+    # every minute move 6 degrees right
+    x = 300 * (4 / 5) * math.cos(math.radians(90 - minute * 6)) + 300
+    y = 300 * (4 / 5) * math.sin(-math.radians(90 - minute * 6)) + 300
+    pg.draw.line(screen, (0, 0, 0), (300, 300), (x, y), 10)
+
+
+def draw_hours():
+    # every hour move 30 degrees right
+    x = 300 * (3 / 5) * math.cos(math.radians(90 - hour * 30)) + 300
+    y = 300 * (3 / 5) * math.sin(-math.radians(90 - hour * 30)) + 300
+    pg.draw.line(screen, (0, 0, 0), (300, 300), (x, y), 5)
+
+
+def draw_time():
+    draw_seconds()
+    draw_minutes()
+    draw_hours()
