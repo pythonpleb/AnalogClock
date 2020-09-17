@@ -30,12 +30,15 @@ def get_time_digital():
     second = now.second
 
     # show current time digitally on the screen
-    if second < 10:
+    if second < 10 and minute < 10:
+        show_time = Font.render(str(hour) + ":0" + str(minute) + ":0" + str(second), True, (0, 0, 0))
+    elif second < 10:
         show_time = Font.render(str(hour) + ":" + str(minute) + ":0" + str(second), True, (0, 0, 0))
     elif minute < 10:
         show_time = Font.render(str(hour) + ":0" + str(minute) + ":" + str(second), True, (0, 0, 0))
     else:
         show_time = Font.render(str(hour) + ":" + str(minute) + ":" + str(second), True, (0, 0, 0))
+
     screen.blit(show_time, (15, 15))
 
 
